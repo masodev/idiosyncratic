@@ -1,0 +1,24 @@
+<div class="jumbotron">
+<h2>id'i'o'syn'cra'sy n. pl. id'i'o'syn'cra'sies. 1. A structural or behavioral characteristic peculiar to an individual or group.</h2>
+<h3>idiosycratic ME is the idiosycratic YOU</h3>
+</div>
+<div class="center" 
+<div class="row">
+     <% @listings.each do |listing| %>
+  <div class="col-md-3">
+      <div class="thumbnail">
+        <%= link_to image_tag(listing.image.url), listing %>
+      <div class="caption">
+        <h3><%= listing.name %></h3>
+        <p><%= number_to_currency(listing.price) %></p>
+      </div>
+    </div>
+      <br>
+</div>
+  <% end %>
+</div>
+</div>
+  <br>
+<% if user_signed_in? %>   
+<%= link_to 'New Listing', new_listing_path, class: "btn btn-success"  %>
+<% end %>
